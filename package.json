@@ -4,7 +4,8 @@
   "description": "A package for allowing the use of decorators when using express with Typescript.",
   "scripts": {
     "build": "tsc",
-    "build:watch": "npm run build -- --watch"
+    "build:watch": "npm run build -- --watch",
+    "format": "clang-format --glob=\"src/**/*.ts\" -i --style=file"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/connorwyatt/at-express#readme",
   "devDependencies": {
+    "clang-format": "^1.0.45",
     "typescript": "latest"
   }
 }
