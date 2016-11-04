@@ -1,0 +1,21 @@
+{
+  "name": "at-express",
+  "version": "0.0.0",
+  "description": "A package for allowing the use of decorators when using express with Typescript.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/connorwyatt/at-express.git"
+  },
+  "keywords": [
+    "at",
+    "decorators",
+    "express",
+    "typescript"
+  ],
+  "author": "Connor Wyatt <connorwyatt1@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/connorwyatt/at-express/issues"
+  },
+  "homepage": "https://github.com/connorwyatt/at-express#readme"
+}
