@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "member-access": true,
+    "member-ordering": [true, { "order": "fields-first" }],
+    "only-arrow-functions": true,
+    "no-unreachable": true,
+    "no-unused-expression": true,
+    "no-unused-variable": true,
+    "radix": true,
+    "triple-equals": true,
+    "class-name": true,
+    "interface-name": true,
+    "no-angle-bracket-type-assertion": true,
+    "one-variable-per-declaration": true
+  }
+}
