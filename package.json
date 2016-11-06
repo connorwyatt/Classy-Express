@@ -25,7 +25,9 @@
   },
   "homepage": "https://github.com/connorwyatt/at-express#readme",
   "dependencies": {
+    "@types/glob": "^5.0.30",
     "@types/node": "^6.0.46",
+    "glob": "^7.1.1",
     "reflect-metadata": "^0.1.8"
   },
   "devDependencies": {
