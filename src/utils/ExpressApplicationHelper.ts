@@ -1,23 +1,20 @@
-import * as Express from '@types/express';
+import {Application} from '@types/express';
+import * as Express from 'express';
 
 let expressApplicationHelperInstance: ExpressApplicationHelper;
 
 export class ExpressApplicationHelper {
-  public get expressApplication() {
+  public get expressApplication(): Application {
     return this._expressApplication;
   }
 
-  private _expressApplication: typeof Express;
+  constructor(private _expressApplication: Application) {}
 
   public static getInstance(): ExpressApplicationHelper {
     if (expressApplicationHelperInstance) {
       return expressApplicationHelperInstance;
     }
 
-    return expressApplicationHelperInstance = new ExpressApplicationHelper();
-  }
-
-  public setExpressApplication(expressApplication: typeof Express) {
-    this._expressApplication = expressApplication;
+    return expressApplicationHelperInstance = new ExpressApplicationHelper(Express());
   }
 }
