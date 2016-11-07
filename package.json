@@ -8,6 +8,8 @@
     "format": "clang-format --glob=\"src/**/*.ts\" -i --style=file",
     "tslint": "tslint 'src/**/*.ts'"
   },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/connorwyatt/at-express.git"
