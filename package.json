@@ -6,6 +6,7 @@
     "build": "npm-run-all -l build:clean build:run",
     "build:watch": "npm-run-all -l build:clean build:run:watch",
     "format": "clang-format --glob=\"src/**/*.ts\" -i --style=file",
+    "prepublish": "npm run build",
     "test": "npm-run-all -l test:clean test:build test:run",
     "test:watch": "npm-run-all -l test:clean test:build --parallel test:build:watch test:run:watch",
     "tslint": "tslint 'src/**/*.ts'",
