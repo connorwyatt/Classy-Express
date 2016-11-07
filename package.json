@@ -1,6 +1,6 @@
 {
   "name": "at-express",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A package for allowing the use of decorators when using express with Typescript.",
   "scripts": {
     "build": "npm-run-all -l build:clean build:run",
@@ -10,11 +10,9 @@
     "test": "npm-run-all -l test:clean test:build test:run",
     "test:watch": "npm-run-all -l test:clean test:build --parallel test:build:watch test:run:watch",
     "tslint": "tslint 'src/**/*.ts'",
-
     "build:clean": "rimraf dist/",
     "build:run": "tsc -p src/ --outDir dist/",
     "build:run:watch": "npm run build:run -- --watch",
-
     "test:build": "tsc -p test/ --outDir .temp/test/",
     "test:build:watch": "npm run test:build -- --watch",
     "test:clean": "rimraf .temp/test/",
