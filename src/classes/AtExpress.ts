@@ -1,4 +1,3 @@
-import * as Express from '@types/express';
 import {Application, RequestHandler} from '@types/express';
 import {ExpressApplicationHelper} from '../utils/ExpressApplicationHelper';
 import {PathScanner} from '../utils/PathScanner';
@@ -8,10 +7,6 @@ export class AtExpress {
   private port: number;
   private basePath: string = '';
   private middleware: Array<RequestHandler> = [];
-
-  constructor(express: typeof Express) {
-    ExpressApplicationHelper.getInstance().setExpressApplication(express);
-  }
 
   public scanFiles(files: Array<string>): void {
     PathScanner.scanPathUsingFilePaths(files);
@@ -39,7 +34,7 @@ export class AtExpress {
     }
 
     return Promise.all(this.preStartPromises).then(() => {
-      const application = ExpressApplicationHelper.getInstance().expressApplication();
+      const application = ExpressApplicationHelper.getInstance().expressApplication;
 
       this.applyMiddleware(application, this.middleware);
 
