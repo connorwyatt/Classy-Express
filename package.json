@@ -3,10 +3,22 @@
   "version": "0.0.0",
   "description": "A package for allowing the use of decorators when using express with Typescript.",
   "scripts": {
-    "build": "tsc",
-    "build:watch": "npm run build -- --watch",
+    "build": "npm-run-all -l build:clean build:run",
+    "build:watch": "npm-run-all -l build:clean build:run:watch",
     "format": "clang-format --glob=\"src/**/*.ts\" -i --style=file",
-    "tslint": "tslint 'src/**/*.ts'"
+    "test": "npm-run-all -l test:clean test:build test:run",
+    "test:watch": "npm-run-all -l test:clean test:build --parallel test:build:watch test:run:watch",
+    "tslint": "tslint 'src/**/*.ts'",
+
+    "build:clean": "rimraf dist/",
+    "build:run": "tsc -p src/ --outDir dist/",
+    "build:run:watch": "npm run build:run -- --watch",
+
+    "test:build": "tsc -p test/ --outDir .temp/test/",
+    "test:build:watch": "npm run test:build -- --watch",
+    "test:clean": "rimraf .temp/test/",
+    "test:run": "mocha .temp/test/**/*.spec.js -c",
+    "test:run:watch": "npm run test:run -- --watch"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -34,8 +46,17 @@
     "reflect-metadata": "^0.1.8"
   },
   "devDependencies": {
+    "@types/chai": "^3.4.34",
+    "@types/mocha": "^2.2.32",
+    "@types/sinon": "^1.16.31",
+    "chai": "^3.5.0",
     "clang-format": "^1.0.45",
     "express": "^4.14.0",
+    "mocha": "^3.1.2",
+    "npm-run-all": "^3.1.1",
+    "rimraf": "^2.5.4",
+    "sinon": "^1.17.6",
+    "tsc-glob": "^2.0.1",
     "tslint": "^3.15.1",
     "typescript": "latest"
   },
