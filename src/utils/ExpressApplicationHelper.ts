@@ -1,5 +1,8 @@
 import {Application} from '@types/express';
 import * as Express from 'express';
+import {Router} from 'express';
+import {IRequestHandlerConfig} from '../interfaces/IRequestHandlerConfig';
+import {IRouterConfig} from '../interfaces/IRouterConfig';
 
 let expressApplicationHelperInstance: ExpressApplicationHelper;
 
@@ -16,5 +19,19 @@ export class ExpressApplicationHelper {
     }
 
     return expressApplicationHelperInstance = new ExpressApplicationHelper(Express());
+  }
+
+  public createAndMountRouterFromConfig(config: IRouterConfig): void {
+    const router = Router();
+
+    config.requestHandlerConfigs.forEach((requestHandlerConfig) => {
+      this.assignRequestHandlerToRouter(router, requestHandlerConfig);
+    });
+
+    this._expressApplication.use(config.path, router);
+  }
+
+  private assignRequestHandlerToRouter(router: Router, config: IRequestHandlerConfig): void {
+    router.get(config.path, config.fn);
   }
 }
