@@ -1,3 +1,2 @@
 export {AtExpress} from './classes/AtExpress';
-export {GET} from './decorators/GET';
-export {Route} from './decorators/Route';
+export {ALL, DELETE, GET, POST, PUT, Route} from './decorators';

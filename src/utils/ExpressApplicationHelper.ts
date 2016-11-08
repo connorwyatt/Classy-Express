@@ -1,6 +1,7 @@
 import {Application} from '@types/express';
 import * as Express from 'express';
 import {Router} from 'express';
+import {Methods} from '../enums/MethodsEnum';
 import {IRequestHandlerConfig} from '../interfaces/IRequestHandlerConfig';
 import {IRouterConfig} from '../interfaces/IRouterConfig';
 
@@ -32,6 +33,22 @@ export class ExpressApplicationHelper {
   }
 
   private assignRequestHandlerToRouter(router: Router, config: IRequestHandlerConfig): void {
-    router.get(config.path, config.fn);
+    switch (config.method) {
+      case Methods.ALL:
+        router.all(config.path, config.fn);
+        break;
+      case Methods.GET:
+        router.get(config.path, config.fn);
+        break;
+      case Methods.POST:
+        router.post(config.path, config.fn);
+        break;
+      case Methods.PUT:
+        router.put(config.path, config.fn);
+        break;
+      case Methods.DELETE:
+        router.delete(config.path, config.fn);
+        break;
+    }
   }
 }
