@@ -2,6 +2,10 @@
   "name": "at-express",
   "version": "0.0.0",
   "description": "A package for allowing the use of decorators when using express with Typescript.",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "npm run build -- --watch"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/connorwyatt/at-express.git"
@@ -17,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/connorwyatt/at-express/issues"
   },
-  "homepage": "https://github.com/connorwyatt/at-express#readme"
+  "homepage": "https://github.com/connorwyatt/at-express#readme",
+  "devDependencies": {
+    "typescript": "latest"
+  }
 }
