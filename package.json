@@ -24,6 +24,10 @@
     "url": "https://github.com/connorwyatt/at-express/issues"
   },
   "homepage": "https://github.com/connorwyatt/at-express#readme",
+  "dependencies": {
+    "@types/node": "^6.0.46",
+    "reflect-metadata": "^0.1.8"
+  },
   "devDependencies": {
     "clang-format": "^1.0.45",
     "tslint": "^3.15.1",
